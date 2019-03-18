@@ -3,7 +3,7 @@
 \autor MeijoUniversity Robot System Design Laboratory
 
 
-## Install dependent library
+## Install boost library
 
 ```
 sudo apt install libboost-all-dev
@@ -13,6 +13,11 @@ sudo apt install libboost-all-dev
 ## Install OpenRTM-aist
 
 http://www2.meijo-u.ac.jp/~kohara/cms/openrtm-aist_temp_install
+
+## Install rtshell
+
+http://www2.meijo-u.ac.jp/~kohara/cms/technicalreport/ubuntu_rtshell_install_112
+
 
 ## Download FRANN library
 
