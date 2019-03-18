@@ -1,10 +1,12 @@
 #!/bin/sh
 
-COM="gnome-terminal -e"
+COM="sudo gnome-terminal -e"
 export HOST="localhost"
 
 echo ""
 echo "Execution of SeedNoid Manipulation RT Component"
+echo ""
+echo "Need to run as root in order to open the serial port"
 echo ""
 
 $COM "../Component/ObstacleManager/build/src/ObstacleManagerComp -f ../Component/ObstacleManager/rtc.conf"
