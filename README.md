@@ -1,8 +1,11 @@
 ## SEED-Noid Manipulation RTM pkg
 
-\author MeijoUniversity Robot System Design Laboratory
+Author MeijoUniversity Robot System Design Laboratory
 
 ## Dependencies
+OS : Ubuntu 16.04
+RTM : OpenRTM-aist 1.1.2
+FLANN : flann-1.8.4
 
 
 ## Install boost library
@@ -19,7 +22,7 @@ Please refer to the following URL
 http://www2.meijo-u.ac.jp/~kohara/cms/openrtm-aist_temp_install
 
 ## Install rtshell
-rtshecll is the script to manage the RT component-based system.
+rtshell is the script to manage the RT component-based system.
 It strongly recommends to install the rtshell
 
 http://www2.meijo-u.ac.jp/~kohara/cms/technicalreport/ubuntu_rtshell_install_112
@@ -33,12 +36,20 @@ If following zip file could not download, please check the version.
 Download ZIP
 http://www.cs.ubc.ca/research/flann/
 
+Version 1.8.4 command (2019/03/18)
 ```
-cd flann-x.y.z-src
+wget http://www.cs.ubc.ca/research/flann/uploads/FLANN/flann-1.8.4-src.zip
+unzip flann-1.8.4-src.zip
+cd flann-1.8.4-src
 mkdir build
 cd build
 cmake ..
 make
+```
+
+## Download
+```
+git clone https://github.com/rsdlab/SeedNoidManipulation_RTM_pkg
 ```
 
 ## Build component
@@ -73,20 +84,6 @@ sh Activate.sh
 You can operate SEED-Noid by using SeedUpperBodyTestController
 This RTC can directly control SEED Noid upper body to input the following commands.
 Detail information, please check the manual of SeedUpperBodyTestController
-
-```
-Please select a command
-1 : Servo ON
-2 : Servo OFF
-3 : Control of the Right Arm
-4 : Control of the Left Arm
-5 : Control of the Neck
-6 : Control of the Waist
-7 : Get Current Angle
-8 : Get Current End Effector Pos
-9 : Motion Planning and Control
-10 : End
-```
 
 ## Deactivate
 Please execute after select a command 10 : End
