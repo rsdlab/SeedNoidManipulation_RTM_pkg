@@ -1,0 +1,56 @@
+#ifndef MANIPULATIONPATHGENERATORINTERFACE_IDL
+#define MANIPULATIONPATHGENERATORINTERFACE_IDL
+#include "BasicDataType.idl"
+
+module Manipulation{
+   
+  struct RETURN_ID {
+    long id;
+    string comment;
+  };
+
+  struct WaistPos{
+    double roll;
+    double pitch;
+    double yaw;
+  };
+
+  struct LifterPos{
+    double bottom;
+    double top;
+  };
+  
+  const long OK = 0;
+  const long NG = -1;
+  const long STATUS_ERR = -2;
+  const long VALUE_ERR = -3;
+  const long NOT_SV_ON_ERR = -4;
+  const long FULL_MOTION_QUEUE_ERR = -5;
+  const long NOT_IMPLEMENTED = -6;
+
+  typedef sequence<double> JointAngleSeq;
+  typedef sequence<JointAngleSeq> ViaPosSeq;
+
+  struct DualUpperJoint{
+    JointAngleSeq right;
+    JointAngleSeq left;
+    WaistPos waist;
+    LifterPos lifter;
+  };
+
+  typedef sequence<DualUpperJoint> ViaDualUpperJointSeq;
+
+  interface PathGeneratorInterface{
+    //Right
+    RETURN_ID JointSpaceGenerateRightArmMotion(in JointAngleSeq goalJointPos);
+    RETURN_ID JointSpaceGenerateRightArmViaMotion(in ViaPosSeq viaJointPos,in JointAngleSeq goalJointPos);
+    //Left
+    RETURN_ID JointSpaceGenerateLeftArmMotion(in JointAngleSeq goalJointPos);
+    RETURN_ID JointSpaceGenerateLeftArmViaMotion(in ViaPosSeq viaJointPos,in JointAngleSeq goalJointPos);
+    //Dual
+    RETURN_ID JointSpaceGenerateDualArmMotion(in DualUpperJoint goalJointPos);
+    RETURN_ID JointSpaceGenerateDualArmViaMotion(in ViaDualUpperJointSeq viaJointPos, in DualUpperJoint goalJointPos);
+  };
+
+};
+#endif //MANIPULATIONPATHGENERATORINTERFACE_IDL

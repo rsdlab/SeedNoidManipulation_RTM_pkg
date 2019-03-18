@@ -1,0 +1,30 @@
+#ifndef MARKEROBSTACLE_IDL
+#define MARKEROBSTACLE_IDL
+#include "BasicDataType.idl"
+#include "ExtendedDataTypes.idl"
+module Obstacle
+{
+  struct Point3D
+  {
+    float x;
+    float y;
+    float z;
+  };
+  
+  struct AABB
+  {
+    Point3D center;
+    float rx;//半径
+    float ry;
+    float rz;
+  };
+
+  typedef sequence<AABB> AABBSeq;
+
+  interface ObstacleInterface
+  {
+    void getDisplayShelfObstacle(out AABBSeq obastacleData);
+  };
+
+};
+#endif //MARKEROBSTACLE

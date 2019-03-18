@@ -1,0 +1,54 @@
+# SeedLifterEyeLinkKinematics CMake config file
+#
+# This file sets the following variables:
+# SeedLifterEyeLinkKinematics_FOUND - Always TRUE.
+# SeedLifterEyeLinkKinematics_INCLUDE_DIRS - Directories containing the SeedLifterEyeLinkKinematics include files.
+# SeedLifterEyeLinkKinematics_IDL_DIRS - Directories containing the SeedLifterEyeLinkKinematics IDL files.
+# SeedLifterEyeLinkKinematics_LIBRARIES - Libraries needed to use SeedLifterEyeLinkKinematics.
+# SeedLifterEyeLinkKinematics_DEFINITIONS - Compiler flags for SeedLifterEyeLinkKinematics.
+# SeedLifterEyeLinkKinematics_VERSION - The version of SeedLifterEyeLinkKinematics found.
+# SeedLifterEyeLinkKinematics_VERSION_MAJOR - The major version of SeedLifterEyeLinkKinematics found.
+# SeedLifterEyeLinkKinematics_VERSION_MINOR - The minor version of SeedLifterEyeLinkKinematics found.
+# SeedLifterEyeLinkKinematics_VERSION_REVISION - The revision version of SeedLifterEyeLinkKinematics found.
+# SeedLifterEyeLinkKinematics_VERSION_CANDIDATE - The candidate version of SeedLifterEyeLinkKinematics found.
+
+message(STATUS "Found SeedLifterEyeLinkKinematics-@PROJECT_VERSION@")
+set(SeedLifterEyeLinkKinematics_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(SeedLifterEyeLinkKinematics_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(SeedLifterEyeLinkKinematics_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(SeedLifterEyeLinkKinematics_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(SeedLifterEyeLinkKinematics_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(SeedLifterEyeLinkKinematics_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(SeedLifterEyeLinkKinematics_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(SeedLifterEyeLinkKinematics_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(SeedLifterEyeLinkKinematics_VERSION @PROJECT_VERSION@)
+set(SeedLifterEyeLinkKinematics_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(SeedLifterEyeLinkKinematics_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(SeedLifterEyeLinkKinematics_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(SeedLifterEyeLinkKinematics_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

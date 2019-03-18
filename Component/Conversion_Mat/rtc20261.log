@@ -1,0 +1,12 @@
+[0m[34mMar 18 07:30:37.608 INFO: manager: [0m1.1.2
+[0m[34mMar 18 07:30:37.608 INFO: manager: [0mCopyright (C) 2003-2014
+[0m[34mMar 18 07:30:37.608 INFO: manager: [0m  Noriaki Ando
+[0m[34mMar 18 07:30:37.608 INFO: manager: [0m  Intelligent Systems Research Institute, AIST
+[0m[34mMar 18 07:30:37.609 INFO: manager: [0mManager starting.
+[0m[34mMar 18 07:30:37.609 INFO: manager: [0mStarting local logging.
+[0m[33mMar 18 07:30:37.628 WARNING: NamingOnCorba: [0mNo endpoint for the CORBA naming service (localhost) was found.
+[0m[34mMar 18 07:30:37.628 INFO: NamingManager: [0mNameServer connection succeeded: corba/localhost
+[0m[34mMar 18 07:30:37.633 INFO: ManagerServant: [0mMaster manager not found
+[0m[34mMar 18 07:30:37.635 INFO: manager: [0mComponent type conf file: Conversion_Mat.conf loaded.
+[0m[33mMar 18 07:30:44.050 WARNING: SdoServiceAdmin: [0mNo available SDO service in the factory: 
+[0m[33mMar 18 07:30:44.051 WARNING: SdoServiceAdmin: [0mNo available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0

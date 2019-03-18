@@ -1,0 +1,119 @@
+#ifndef SEEDUPPERINTERFACE_MIDDLELEVEL_IDL
+#define SEEDUPPERINTERFACE_MIDDLELEVEL_IDL
+
+#include "SeedUpperInterface_DataType.idl"
+module SEED_UPPER{
+
+  typedef double HgMatrix [3][4];
+  
+  struct EEPos {
+    HgMatrix carPos;
+    ULONG structFlag;
+  };
+
+  struct CarPosWithElbow{
+    HgMatrix carPos;
+    double elbow;
+    ULONG structFlag;
+  };
+  
+  struct CarPosWithWaistElbow{
+    HgMatrix carPos;
+    RPY waistPos;
+    double elbow;
+    ULONG structFlag;
+  };
+  
+  struct CarPosWithLifterWaistElbow {
+    HgMatrix carPos;
+    Lifter LifterPos;
+    RPY waistPos;
+    double elbow;
+    ULONG structFlag;
+  };
+  
+  struct CartesianSpeed {
+    double translation;
+    double rotation;
+  };
+  
+  //WRArm WaistRightArm
+  //WLArm WaistLeftArm
+  //LIWARArm LifterWaistRightArm
+  //LIWALArm LifterWaistLeftArm
+  interface SeedUpperInterface_Middle {
+    //中レベル
+    //ハンド
+    RETURN_ID closeRightGripper();
+    RETURN_ID openRightGripper();
+    RETURN_ID moveRightGripper(in ULONG angleRatio);
+    RETURN_ID closeLeftGripper();
+    RETURN_ID openLeftGripper();
+    RETURN_ID moveLeftGripper(in ULONG angleRatio);
+    RETURN_ID setRightGraspForce(in ULONG forceRatio);
+    RETURN_ID getRightGraspForce(out ULONG forceRatio);
+    RETURN_ID setLeftGraspForce(in ULONG forceRatio);
+    RETURN_ID getLeftGraspForce(out ULONG forceRatio);
+    //現在位置
+    RETURN_ID getFeedbackPosLIWARCartesian(out CarPosWithLifterWaistElbow pos);
+    RETURN_ID getFeedbackPosLIWALCartesian(out CarPosWithLifterWaistElbow pos);
+    //速度
+    RETURN_ID setMaxSpeedCartesian(in CartesianSpeed speed);
+    RETURN_ID setMaxSpeedJoint(in DoubleSeq speed);
+    RETURN_ID getMaxSpeedCartesian(out CartesianSpeed speed);
+    RETURN_ID getMaxSpeedJoint(out DoubleSeq speed);
+    RETURN_ID setSpeedCartesian(in ULONG spdRatio);
+    RETURN_ID setSpeedJoint(in ULONG spdRatio);
+    RETURN_ID getSpeedCartesian(out ULONG spdRatio);
+    RETURN_ID getSpeedJoint(out ULONG spdRatio);
+    //リミット
+    RETURN_ID setSoftLimitCartesian(in LimitValue xLimit,in LimitValue yLimit, in LimitValue zLimit);
+    RETURN_ID getSoftLimitCartesian(out LimitValue xLimit,out LimitValue yLimit, out LimitValue zLimit);
+    //MOVE
+    //右腕リフター
+    RETURN_ID moveLinearLIWARArmCartesianAbsSetRedunJoint(in CarPosWithLifterWaistElbow carPoint);
+    RETURN_ID moveLinearLIWARArmCartesianRelSetRedunJoint(in CarPosWithLifterWaistElbow carPoint);
+    RETURN_ID movePTPLIWARArmCartesianAbsSetRedunJoint(in CarPosWithLifterWaistElbow carPoint);
+    RETURN_ID movePTPLIWARArmCartesianRelSetRedunJoint(in CarPosWithLifterWaistElbow carPoint);
+    RETURN_ID moveLinearLIWARArmCartesianAbs(in EEPos carPoint);
+    RETURN_ID moveLinearLIWARArmCartesianRel(in EEPos carPoint);
+    RETURN_ID movePTPLIWARArmCartesianAbs(in EEPos carPoint);
+    RETURN_ID movePTPLIWARArmCartesianRel(in EEPos carPoint);
+    RETURN_ID movePTPLIWARArmJointAbs(in JointPos jointPoint);
+    RETURN_ID movePTPLIWARArmJointRel(in JointPos jointPoint);
+    //左腕リフター
+    RETURN_ID moveLinearLIWALArmCartesianAbsSetRedunJoint(in CarPosWithLifterWaistElbow carPoint);
+    RETURN_ID moveLinearLIWALArmCartesianRelSetRedunJoint(in CarPosWithLifterWaistElbow carPoint);
+    RETURN_ID movePTPLIWALArmCartesianAbsSetRedunJoint(in CarPosWithLifterWaistElbow carPoint);
+    RETURN_ID movePTPLIWALArmCartesianRelSetRedunJoint(in CarPosWithLifterWaistElbow carPoint);
+    RETURN_ID moveLinearLIWALArmCartesianAbs(in EEPos carPoint);
+    RETURN_ID moveLinearLIWALArmCartesianRel(in EEPos carPoint);
+    RETURN_ID movePTPLIWALArmCartesianAbs(in EEPos carPoint);
+    RETURN_ID movePTPLIWALArmCartesianRel(in EEPos carPoint);
+    RETURN_ID movePTPLIWALArmJointAbs(in JointPos jointPoint);
+    RETURN_ID movePTPLIWALArmJointRel(in JointPos jointPoint);
+    //双腕リフター
+    RETURN_ID moveLinearLifterDualArmCartesianAbsSetRedunJoint(in Lifter lifterPos, in RPY waistPos, in CarPosWithElbow rightCarPoint, in CarPosWithElbow leftCarPoint);
+    RETURN_ID moveLinearLifterDualArmCartesianRelSetRedunJoint(in Lifter lifterPos, in RPY waistPos, in CarPosWithElbow rightCarPoint, in CarPosWithElbow leftCarPoint);
+    RETURN_ID movePTPLifterDualArmCartesianAbsSetRedunJoint(in Lifter lifterPos, in RPY waistPos, in CarPosWithElbow rightCarPoint, in CarPosWithElbow leftCarPoint);
+    RETURN_ID movePTPLifterDualArmCartesianRelSetRedunJoint(in Lifter lifterPos, in RPY waistPos, in CarPosWithElbow rightCarPoint, in CarPosWithElbow leftCarPoint);
+    RETURN_ID moveLinearLifterDualArmCartesianAbs(in EEPos rightCarPoint, in EEPos leftCarPoint);
+    RETURN_ID moveLinearLifterDualArmCartesianRel(in EEPos rightCarPoint, in EEPos leftCarPoint);
+    RETURN_ID movePTPLifterDualArmCartesianAbs(in EEPos rightCarPoint, in EEPos leftCarPoint);
+    RETURN_ID movePTPLifterDualArmCartesianRel(in EEPos rightCarPoint, in EEPos leftCarPoint);
+    RETURN_ID movePTPLifterDualArmJointAbs(in Lifter lifterPos, in RPY waistPos, in JointPos rightJointPoint, in JointPos leftJointPoint);
+    RETURN_ID movePTPLifterDualArmJointRel(in Lifter lifterPos, in RPY waistPos, in JointPos rightJointPoint, in JointPos leftJointPoint);
+    //実行周期毎
+    RETURN_ID movePTPLIWARArmJointAbsCmdCycle(in JointPos jointPoint);
+    RETURN_ID movePTPLIWALArmJointAbsCmdCycle(in JointPos jointPoint);
+    RETURN_ID movePTPDualArmJointAbsCmdCycle(in Lifter lifterPos, in RPY waistPos, in JointPos rightJointPoint, in JointPos leftJointPoint);
+    //Kinematics
+    RETURN_ID solveLIWARArmIkSetRedunJoint(in CarPosWithLifterWaistElbow carPoint, in JointPos nowJointPos, out JointPos jointPoint);
+    RETURN_ID solveLIWALArmIkSetRedunJoint(in CarPosWithLifterWaistElbow carPoint, in JointPos nowJointPos, out JointPos jointPoint);
+    RETURN_ID solveLIWARArmIk(in EEPos carPoint, in JointPos nowJointPos, out JointPos jointPoint);
+    RETURN_ID solveLIWALArmIk(in EEPos carPoint, in JointPos nowJointPos, out JointPos jointPoint);
+    RETURN_ID solveLIWARArmFk(in JointPos jointPoint, out EEPos carPoint);
+    RETURN_ID solveLIWALArmFk(in JointPos jointPoint, out EEPos carPoint);
+  };
+};
+#endif // SEEDUPPERINTERFACE_MIDDLELEVEL_IDL

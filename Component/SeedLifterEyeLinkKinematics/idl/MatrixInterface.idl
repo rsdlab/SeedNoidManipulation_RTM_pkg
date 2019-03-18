@@ -1,0 +1,40 @@
+#ifndef TRANSFORMATION_MATLIX_IDL
+#define TRANSFORMATION_MATLIX_IDL
+#include "BasicDataType.idl"
+#include "ExtendedDataTypes.idl"
+module TransformationMatrix
+{
+
+  const long OK=0;
+  const long NG=-1;
+
+  struct rotationMat
+  {
+    ///R11,R12,R13
+    ///R21,R22,R23
+    ///R31,R32,R33
+
+    double R11;
+    double R12;
+    double R13;
+    double R21;
+    double R22;
+    double R23;
+    double R31;
+    double R32;
+    double R33;
+  };
+
+  struct transformationMat
+  {
+    rotationMat rotation;
+    RTC::Vector3D translates;
+  };
+  
+  interface transformationInterface
+  {
+    long getMatrix(out transformationMat Matrix);
+  };
+  
+};
+#endif
