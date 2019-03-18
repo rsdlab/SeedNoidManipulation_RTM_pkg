@@ -1,8 +1,6 @@
-SEED-Noid Manipulation RTM pkg
+## SEED-Noid Manipulation RTM pkg
 
 \autor MeijoUniversity Robot System Design Laboratory
-
-Licensed under the MIT License
 
 
 ## Install dependent library
@@ -18,6 +16,7 @@ http://www2.meijo-u.ac.jp/~kohara/cms/openrtm-aist_temp_install
 
 ## Download FRANN library
 
+Download ZIP
 http://www.cs.ubc.ca/research/flann/
 
 ```
@@ -28,13 +27,21 @@ cmake ..
 make
 ```
 
+## Build component
+```
+cd ~/SeedNoidManipulation_RTM_pkg/script
+sh BuildComp.sh
+```
+
+
 ## Execution
 ```
-cd script
+cd ~/SeedNoidManipulation_RTM_pkg/script
 sh EXE.sh
 ```
-Lifter serial port is set to ttyUSB0
-Upper serial port is set to ttyUSB1
+Lifter serial port is set to ``/dev/ttyUSB0``
+
+Upper serial port is set to ``/dev/ttyUSB1``
 
 If you need to change the serial port, change the configuration parameters in the RT System Editor
 
@@ -42,7 +49,7 @@ If you need to change the serial port, change the configuration parameters in th
 Please execute after connecting USB serial
 
 ```
-cd script
+cd ~/SeedNoidManipulation_RTM_pkg/script
 sh Activate.sh
 ```
 
@@ -68,13 +75,13 @@ Please select a command
 Please execute after select a command 10 : End
 
 ```
-cd script
+cd ~/SeedNoidManipulation_RTM_pkg/script
 sh Deactivate.sh
 ```
 
 ## Exit
 
 ```
-cd script
+cd ~/SeedNoidManipulation_RTM_pkg/script
 sh exit.sh
 ```
