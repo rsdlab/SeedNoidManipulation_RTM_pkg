@@ -4,7 +4,9 @@ Author MeijoUniversity Robot System Design Laboratory
 
 ## Dependencies
 OS : Ubuntu 16.04
+
 RTM : OpenRTM-aist 1.1.2
+
 FLANN : flann-1.8.4
 
 
@@ -47,7 +49,7 @@ cmake ..
 make
 ```
 
-## Download
+## Download SEED-Noid Manipulation RTM pkg
 ```
 git clone https://github.com/rsdlab/SeedNoidManipulation_RTM_pkg
 ```
