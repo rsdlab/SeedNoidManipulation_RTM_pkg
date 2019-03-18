@@ -1,6 +1,8 @@
 ## SEED-Noid Manipulation RTM pkg
 
-\autor MeijoUniversity Robot System Design Laboratory
+\author MeijoUniversity Robot System Design Laboratory
+
+## Dependencies
 
 
 ## Install boost library
@@ -12,14 +14,21 @@ sudo apt install libboost-all-dev
 
 ## Install OpenRTM-aist
 
+Please refer to the following URL
+
 http://www2.meijo-u.ac.jp/~kohara/cms/openrtm-aist_temp_install
 
 ## Install rtshell
+rtshecll is the script to manage the RT component-based system.
+It strongly recommends to install the rtshell
 
 http://www2.meijo-u.ac.jp/~kohara/cms/technicalreport/ubuntu_rtshell_install_112
 
 
 ## Download FRANN library
+FRANN library is used for path planning of manipulator.
+If following zip file could not download, please check the version.
+(In this manual, our development environment is listed at "Depndencies")
 
 Download ZIP
 http://www.cs.ubc.ca/research/flann/
@@ -33,6 +42,7 @@ make
 ```
 
 ## Build component
+In this part, the components are cloned to user home directory.
 ```
 cd ~/SeedNoidManipulation_RTM_pkg/script
 sh BuildComp.sh
@@ -48,19 +58,21 @@ Lifter serial port is set to ``/dev/ttyUSB0``
 
 Upper serial port is set to ``/dev/ttyUSB1``
 
-If you need to change the serial port, change the configuration parameters in the RT System Editor
+If you need to change the serial port, please change the configuration parameters by the RT System Editor.
+or
+Please modify the "rtc.conf" before activate the components.
 
 ## Activate
-Please execute after connecting USB serial
+Please execute after connecting USB serial cable to target PC.
 
 ```
 cd ~/SeedNoidManipulation_RTM_pkg/script
 sh Activate.sh
 ```
 
-You can operate SEED-Noid using SeedUpperBodyTestController
-
-SeedUpperBodyTestController terminal
+You can operate SEED-Noid by using SeedUpperBodyTestController
+This RTC can directly control SEED Noid upper body to input the following commands.
+Detail information, please check the manual of SeedUpperBodyTestController
 
 ```
 Please select a command
