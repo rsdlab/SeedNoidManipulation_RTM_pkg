@@ -1,0 +1,12 @@
+[0m[34mMar 19 05:44:30.990 INFO: manager: [0m1.1.2
+[0m[34mMar 19 05:44:30.991 INFO: manager: [0mCopyright (C) 2003-2014
+[0m[34mMar 19 05:44:30.991 INFO: manager: [0m  Noriaki Ando
+[0m[34mMar 19 05:44:30.991 INFO: manager: [0m  Intelligent Systems Research Institute, AIST
+[0m[34mMar 19 05:44:30.991 INFO: manager: [0mManager starting.
+[0m[34mMar 19 05:44:30.991 INFO: manager: [0mStarting local logging.
+[0m[33mMar 19 05:44:31.004 WARNING: NamingOnCorba: [0mNo endpoint for the CORBA naming service (localhost) was found.
+[0m[34mMar 19 05:44:31.004 INFO: NamingManager: [0mNameServer connection succeeded: corba/localhost
+[0m[34mMar 19 05:44:31.005 INFO: ManagerServant: [0mMaster manager not found
+[0m[34mMar 19 05:44:31.007 INFO: manager: [0mComponent type conf file: Conversion_Mat.conf loaded.
+[0m[34mMar 19 05:44:31.876 INFO: Transformation_Interface: [0minterface matched with old descriptor: port.TransformationMatrix::transformationInterface.transformationInterface
+[0m[34mMar 19 05:49:41.159 INFO: Transformation_Interface: [0minterface matched with old descriptor: port.TransformationMatrix::transformationInterface.transformationInterface
